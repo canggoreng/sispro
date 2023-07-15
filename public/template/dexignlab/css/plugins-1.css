@@ -1,0 +1,29 @@
+/*=========================
+	All css
+==========================*/
+@import url("../plugins/bootstrap/css/bootstrap.min-1.css");
+@import url("../plugins/fontawesome/css/font-awesome.min-1.css");
+@import url("../plugins/line-awesome/css/line-awesome.min-1.css");
+@import url("../plugins/themify/themify-icons-1.css");
+@import url("../plugins/scroll/scrollbar-1.css");
+@import url("../plugins/lightgallery/css/lightgallery.min-1.css");
+@import url("../plugins/owl-carousel/owl.carousel-1.css");
+@import url("../plugins/animate/animate-1.css");
+@import url("../plugins/switcher/switcher-1.css");
+
+/*=========================
+	All css
+==========================*/
+@import url('../../css-5');
+
+
+
+/*
+
+font-family: 'Poppins', sans-serif;
+font-family: 'Roboto', sans-serif;
+font-family: 'Montserrat', sans-serif;
+font-family: 'Lora', serif;
+font-family: 'Barlow', sans-serif;
+
+*/

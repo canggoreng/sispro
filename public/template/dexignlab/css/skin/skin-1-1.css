@@ -1,0 +1,120 @@
+/*===================== 
+	Primary bg color 
+=====================*/
+:root{
+	--primary: #ef5525;
+	--secondary: #13212a;
+	--primary-hover: #60cac8;
+	--primary-dark: #ea4619;
+	--rgba-primary-1: rgba(239,85,37,0.1);
+	--rgba-primary-2: rgba(239,85,37,0.2);
+	--rgba-primary-3: rgba(239,85,37,0.3);
+	--rgba-primary-4: rgba(239,85,37,0.4);
+	--rgba-primary-5: rgba(239,85,37,0.5);
+	--rgba-primary-6: rgba(239,85,37,0.6);
+	--rgba-primary-7: rgba(239,85,37,0.7);
+	--rgba-primary-8: rgba(239,85,37,0.8);
+	--rgba-primary-9: rgba(239,85,37,0.9);
+}
+
+/* Hex */
+.menuleft:after,
+#loading-area > div,
+.bg-primary,
+a.bg-primary:hover,
+.overlay-primary-light:after,
+.overlay-primary-middle:after,
+.overlay-primary-dark:after,
+.site-button,
+.owl-theme.dots-style-1 .owl-dots .owl-dot.active span, 
+.owl-theme.dots-style-1 .owl-dots .owl-dot:hover span,
+.comments-area .comment-form p input[type="submit"]{
+    background-color: #ef5525;
+}
+/*Hex color :hover */
+.site-button:active,
+.site-button:hover,
+.site-button:focus,
+.active > .site-button,
+.bg-primary-dark,
+.sidenav .closebtn:hover,
+.style-2 .dez-social-icon.dez-border li a:hover,
+.comments-area .comment-form p input[type="submit"]:hover{
+    background-color: #f0342b;
+}
+/*===================== 
+	Premery text color 
+=====================*/
+a,
+.text-primary,
+.site-button.outline,
+.dez-countdown .date .time,
+.lg-outer .lg-toogle-thumb,
+.lg-outer .lg-toogle-thumb:hover,
+.dlab-bnr-inr .breadcrumb-row ul li:after, 
+.dlab-bnr-inr .breadcrumb-row ul li:last-child,
+.testimonial-1 .testimonial-position,
+.resume-tag .resume-tag-btn strong,
+.knowledge-tag li:after,
+.site-filters .active > [class*="site-button"]{
+    color: #ef5525;
+}
+
+/*===================== 
+	Border Color color 
+=====================*/
+.timeline .box-left,
+.timeline .box-left:after,
+.site-button.outline,
+.dez-countdown .date .time,
+.dlab-post-tags .post-tags a,
+.comments-area .comment-form p input[type="text"]:focus, 
+.comments-area .comment-form p input[type="text"]:hover, 
+.comments-area .comment-form p textarea:focus,
+.comments-area .comment-form p textarea:hover{
+	border-color:#ef5525;
+}
+
+.lg-outer .lg-thumb-item.active, 
+.lg-outer .lg-thumb-item:hover{
+	border-color: #ef5525;
+}
+/* Gradiyant Bottom To Top */
+.dlab-gallery-box:after,
+.service-box:not(.contact-box):after, 
+.service-box:before,
+.text-gradient,
+.resume-user .site-button,
+.extra-nav ul li a.menu-btn{
+    background-image: linear-gradient(to top,#f0342b 0,#ef5525 100%,#f0342b 100%);
+    background-size: 200%;
+}
+.contact-form .form-group:after,
+.button-gradient, 
+.progress-bar{
+    background-image: linear-gradient(to right,#f0342b 0,#ef5525 100%,#f0342b 500%);
+    background-size: 200%;
+}
+svg.radial-progress:nth-of-type(6n+1) circle{
+	stroke: #ef5525;
+}
+.resume-tag .resume-tag-btn,
+.knowledge-tag li{
+	background-color:rgba(239,85,37,0.1);
+	border-color:rgba(239,85,37,0.2);
+}
+/* text dark */
+
+.text-dark .social-sidebar ul li a,
+.text-dark .copyright-fixed,
+.text-dark .banner-inner .title,
+.text-dark .banner-inner .sub-title,
+.text-dark .extra-nav ul li a:not(.menu-btn){
+	color:#000000;
+}
+#loading-area {
+	background-image: url(../../images/logo-1.png), url(../../images/background/line-bgw-1-1.png);
+}
+.content-body-inner{
+    background-image: url(../../images/background/line-bgb-1-1.png);
+}
