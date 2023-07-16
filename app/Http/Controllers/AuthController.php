@@ -8,6 +8,8 @@ use Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Crypt;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Session;
+
 class AuthController extends Controller
 // ------------------------------------
 {
@@ -53,17 +55,41 @@ class AuthController extends Controller
 // -------------------------------
     public function register(Request $request)
     {
-        dd($request->all());
-        $this->validate($request,[
-            'data' => 'required|min:3',
+        $date = date('Y-m-d H:i:s');
+        // dd($request->all());
+        Session::flash('name',$request->name);
+        Session::flash('email',$request->email);
+        $request->validate([
+            'name' => 'required',
+            'email' => 'required|email|unique:users',
+            'password' => 'required|min:6'
+        ],[
+            'name.required' => 'Nama wajib diisi.',
+            'email.required' => 'Email wajib diisi.',
+            'email.email' => 'Silahkan masukkan email yang valid.',
+            'email.unique' => 'Email Sudah Pernah Digunakan, Silahkan Gunakan Email Lain. ',
+            'password.required' => 'Password wajib diisi.',
+            'password.min' => 'Minimum Password yang diizinkan minimal 6 karakter.'
         ]);
-        $data = new Menu;
-        $data->menu = $request->menu;
-        $data->url_menu = $request->url_menu;
-        $data->status = $request->status;
-        $data->save();        
-        [$logo, $navbar, $logo_front, $general, $contacts] = $this->getAll();
-        return redirect('/log_in')->with('sukses','Sukses, Data Akun Anda Telah Tersimpan, Silahkan LoginS');
+        $data = [
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => bcrypt($request->password),
+            'blokir' => 'Y',
+            'last_login' => $date,
+        ];
+        User::create($data);
+
+        $info = [
+            'email' => $request->email,
+            'password' => $request->password
+        ];
+
+        if(Auth::attemp($info)){
+            return redirect('/sign_up')->with('sukses','Sukses, Data Akun Anda Telah Tersimpan, Silahkan Login');
+        }else{
+            return redirect('/sign_up')->withErrors('error','Username dan Password Tidak Valid');
+        }
     }    
 // -------------------------------
     // public function forgot()

@@ -21,11 +21,11 @@
         {{csrf_field()}}
           <div class="mb-3 text-start">
             <label class="form-label" for="name">Name</label>
-            <input class="form-control" name="name" id="name" type="text" placeholder="Name">
+            <input class="form-control" name="name" value="{{ Session::get('name') }}" id="name" type="text" placeholder="Name">
           </div>
           <div class="mb-3 text-start">
             <label class="form-label" for="email">Email address</label>
-            <input class="form-control" name="email" id="email" type="email" placeholder="name@example.com">
+            <input class="form-control" name="email" value="{{ Session::get('email') }}" id="email" type="email" placeholder="name@example.com">
           </div>
           <div class="row g-3 mb-3">
             <div class="col-md-6">
