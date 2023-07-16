@@ -18,10 +18,10 @@ Route::get('/schedule/notif_login', 'App\Http\Controllers\FrontPageController@no
 Route::get('/clear','App\Http\Controllers\DashboardController@success');
 Route::get('/errors/notfound','App\Http\Controllers\DashboardController@notfound');
 // --------------------------------------
-Route::get('/log_in', 'App\Http\Controllers\AuthController@login')->name('login');
+Route::get('/log_in', 'App\Http\Controllers\AuthController@log_in')->name('log_in');
+Route::get('/sign_up', 'App\Http\Controllers\AuthController@sign_up');
 Route::post('/postlogin', 'App\Http\Controllers\AuthController@postlogin');
-Route::post('/postlogin2', 'App\Http\Controllers\AuthController@postlogin2');
-Route::get('/register', 'App\Http\Controllers\AuthController@register');
+Route::post('/register', 'App\Http\Controllers\AuthController@register');
 Route::get('/forgot', 'App\Http\Controllers\AuthController@forgot');
 Route::get('/logout', 'App\Http\Controllers\AuthController@logout');
 // --------------------------------------
