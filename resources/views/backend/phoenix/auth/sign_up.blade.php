@@ -34,7 +34,7 @@
             </div>
             <div class="col-md-6">
               <label class="form-label" for="confirm_password">Confirm Password</label>
-              <input class="form-control form-icon-input" name="confirm_password" id="confirm_password" type="password" placeholder="Confirm Password">
+              <input class="form-control form-icon-input" name="password_confirmation" id="password_confirmation" type="password" placeholder="Confirm Password">
             </div>
           </div>
           <div class="form-check mb-3"><input class="form-check-input" id="termsService" type="checkbox">

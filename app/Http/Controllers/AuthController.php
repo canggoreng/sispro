@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Crypt;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Validator;
 
 class AuthController extends Controller
 // ------------------------------------
@@ -53,44 +54,56 @@ class AuthController extends Controller
         return view('backend.phoenix.auth.sign_up',compact(['logo','general']));
     }
 // -------------------------------
-    public function register(Request $request)
-    {
-        $date = date('Y-m-d H:i:s');
-        // dd($request->all());
-        Session::flash('name',$request->name);
-        Session::flash('email',$request->email);
-        $request->validate([
-            'name' => 'required',
-            'email' => 'required|email|unique:users',
-            'password' => 'required|min:6'
-        ],[
-            'name.required' => 'Nama wajib diisi.',
-            'email.required' => 'Email wajib diisi.',
-            'email.email' => 'Silahkan masukkan email yang valid.',
-            'email.unique' => 'Email Sudah Pernah Digunakan, Silahkan Gunakan Email Lain. ',
-            'password.required' => 'Password wajib diisi.',
-            'password.min' => 'Minimum Password yang diizinkan minimal 6 karakter.'
-        ]);
-        $data = [
-            'name' => $request->name,
-            'email' => $request->email,
-            'password' => bcrypt($request->password),
-            'blokir' => 'Y',
-            'last_login' => $date,
-        ];
-        User::create($data);
+public function register(Request $request)
+{
+    $date = date('Y-m-d H:i:s');
+    Session::flash('name', $request->name);
+    Session::flash('email', $request->email);
+    $rules = [
+        'name' => 'required|min:3',
+        'email' => 'required|email|unique:users',
+        'password' => 'required|min:6',
+        'password_confirmation' => 'required|same:password',
+    ]; 
+    $messages = [
+        'name.required' => 'Nama wajib diisi.',
+        'name.min' => 'Nama Minimal 3 Karakter.',
+        'email.required' => 'Email wajib diisi.',
+        'email.email' => 'Silahkan masukkan email yang valid.',
+        'email.unique' => 'Email Sudah Pernah Digunakan, Silahkan Gunakan Email Lain. ',
+        'password.required' => 'Password wajib diisi.',
+        'password.min' => 'Minimum Password yang diizinkan minimal 6 karakter.',
+        'password_confirmation.required' => 'Konfirmasi password wajib diisi.',
+        'password_confirmation.same' => 'Konfirmasi password tidak cocok dengan password.',
+    ];
+    $validator = Validator::make($request->all(), $rules, $messages);
 
-        $info = [
-            'email' => $request->email,
-            'password' => $request->password
-        ];
+    if ($validator->fails()) {
+        // return redirect('/sign_up')->with('error', $validator->errors());
+        return redirect()->back()->withErrors($validator)->withInput();
+    }
 
-        if(Auth::attemp($info)){
-            return redirect('/sign_up')->with('sukses','Sukses, Data Akun Anda Telah Tersimpan, Silahkan Login');
-        }else{
-            return redirect('/sign_up')->withErrors('error','Username dan Password Tidak Valid');
-        }
-    }    
+    $data = [
+        'name' => $request->name,
+        'email' => $request->email,
+        'password' => bcrypt($request->password),
+        'blokir' => 'Y',
+        'last_login' => $date,
+    ];
+
+    User::create($data);
+
+    $info = [
+        'email' => $request->email,
+        'password' => $request->password
+    ];
+
+    if (Auth::attempt($info)) {
+        return redirect('/sign_up')->with('sukses', 'Sukses, Data Akun Anda Telah Tersimpan, Silahkan Menunggu Validasi dari Admin');
+    } else {
+        return redirect('/sign_up')->with('error', 'Invalid username or password.')->withErrors($validator);
+    }
+}
 // -------------------------------
     // public function forgot()
     // {
