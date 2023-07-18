@@ -105,10 +105,14 @@ public function register(Request $request)
     }
 }
 // -------------------------------
-    // public function forgot()
-    // {
-    //     return view('backend.phoenix.login.auth-forgot-password');
-    // }
+    public function forgot()
+    {
+        $logo = Logo::where('id',1)->first();
+        $general = General::where('id',1)->first();
+        // return redirect('/forgot')->with('sukses', 'Sukses, Data Akun Anda Telah Tersimpan, Silahkan Menunggu Validasi dari Admin');
+        return view('backend.phoenix.auth.forgot', compact(['logo', 'general']))->with(['sukses' => 'Sukses, Data Akun Anda Telah Tersimpan, Silahkan Menunggu Validasi dari Admin']);
+
+    }
 // -------------------------------    
     public function logout()
     {

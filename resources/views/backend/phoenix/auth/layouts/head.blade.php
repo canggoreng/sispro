@@ -8,6 +8,9 @@
     <!-- ===============================================-->
     <title>Official : SiSPro Pusdatin RSUH</title>
 
+
+
+
     <!-- ===============================================-->
     <!--    Favicons-->
     <!-- ===============================================-->
@@ -25,15 +28,18 @@
     <!-- ===============================================-->
     <!--    Stylesheets-->
     <!-- ===============================================-->
+    <link href="{{asset('/public/template/phoenix/vendors/choices/choices.min.css')}}" rel="stylesheet">
+    <link href="{{asset('/public/template/phoenix/vendors/dhtmlx-gantt/dhtmlxgantt.css')}}" rel="stylesheet">
+    <link href="{{asset('/public/template/phoenix/vendors/flatpickr/flatpickr.min.css')}}" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-    <!-- <link href="{{asset('/public/template/phoenix/css2?family=Nunito+Sans:wght@300;400;600;700;800;900&amp;display=swap')}}" rel="stylesheet"> -->
     <link href="{{asset('/public/template/phoenix/vendors/simplebar/simplebar.min.css')}}" rel="stylesheet">
-    <!-- <link rel="stylesheet" href="{{asset('/public/template/phoenix/release/v4.0.8/css/line.css')}}"> -->
     <link href="{{asset('/public/template/phoenix/assets/css/theme-rtl.min.css')}}" type="text/css" rel="stylesheet" id="style-rtl">
     <link href="{{asset('/public/template/phoenix/assets/css/theme.min.css')}}" type="text/css" rel="stylesheet" id="style-default">
     <link href="{{asset('/public/template/phoenix/assets/css/user-rtl.min.css')}}" type="text/css" rel="stylesheet" id="user-style-rtl">
     <link href="{{asset('/public/template/phoenix/assets/css/user.min.css')}}" type="text/css" rel="stylesheet" id="user-style-default">
+    <!-- <link href="{{asset('/public/template/phoenix/css2?family=Nunito+Sans:wght@300;400;600;700;800;900&amp;display=swap')}}" rel="stylesheet"> -->
+    <!-- <link rel="stylesheet" href="{{asset('/public/template/phoenix/release/v4.0.8/css/line.css')}}"> -->
 
     <!-- Toastr -->
     <link rel="stylesheet" href="{{asset('/public/template/jiva/assets/bundles/izitoast/css/iziToast.min.css')}}">

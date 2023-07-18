@@ -13,6 +13,11 @@
 <script src="{{asset('/public/template/phoenix/vendors/dayjs/dayjs.min.js')}}"></script>
 <script src="{{asset('/public/template/phoenix/assets/js/phoenix.js')}}"></script>
 
+<script src="{{asset('/public/template/phoenix/vendors/choices/choices.min.js')}}"></script>
+<script src="{{asset('/public/template/phoenix/vendors/echarts/echarts.min.js')}}"></script>
+<script src="{{asset('/public/template/phoenix/vendors/dhtmlx-gantt/dhtmlxgantt.js')}}"></script>
+<script src="{{asset('/public/template/phoenix/assets/js/projectmanagement-dashboard.js')}}"></script>
+
 <!-- Toastr -->
 <script src="{{asset('/public/template/jiva/assets/bundles/izitoast/js/iziToast.min.js')}}"></script>
 <script src="{{asset('/public/template/jiva/assets/js/page/toastr.js')}}"></script>
