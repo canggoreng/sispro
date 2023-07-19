@@ -1872,7 +1872,8 @@
     </div> -->
     <div class="navbar-vertical-footer">
         <button class="btn logout">
-            <i class="fa-solid fa-door-open logout"></i><span class="logout"> Log Out</span>
+            <i class="fa-solid fa-door-open"></i>
+            <span class="logout">Log Out</span>
         </button>
     </div>
 </nav>

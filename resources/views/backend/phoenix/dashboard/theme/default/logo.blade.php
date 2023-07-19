@@ -5,10 +5,14 @@
                 class="toggle-line"></span></span></button>
     <a class="navbar-brand me-1 me-sm-3" href="{{url('/dashboard')}}">
         <div class="d-flex align-items-center">
-            <div class="d-flex align-items-center"><img src="{{asset('/public/template/phoenix/img/logo.png')}}"
-                    alt="SiSPro-RSUH" width="27">
-                <p class="logo-text ms-2 d-none d-sm-block">SiSPro <code>V.1</code></p>
+            <div class="d-flex align-items-center"><img src="{{$logo->getlogo()}}" alt="SiSPro-RSUH" width="200">
+                <p class="logo-text ms-2 d-none d-sm-block">&nbsp;&nbsp; Sis - Pro <code>( V.1 )</code></p>
             </div>
         </div>
     </a>
 </div>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;

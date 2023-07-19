@@ -8,7 +8,7 @@ use App\Models\Logo_front;
 use App\Models\Navbar;
 use App\Models\General;
 use App\Models\Contacts;
-use App\Models\DataPasien;
+use App\Models\User;
 use Carbon\Carbon;
 use DB;
 use Illuminate\Database\QueryException;
@@ -31,15 +31,13 @@ class DashboardController extends Controller
     // -----------------    
     public function dashboard()
     {
-        $rand = date('Y-m-d');
-        $sekarang = date('d-m-Y');
-
         $date = date('Y-m-d');
         $hash = Hash::make($date);
+        $user = User::where('id',auth()->user()->id)->first();
 
         [$logo, $navbar, $logo_front, $general, $contacts] = $this->getAll();
         return view('backend.phoenix.dashboard.dashboard',compact([
-        'hash','logo','logo_front','navbar','general','contacts']));
+        'user','hash','logo','logo_front','navbar','general','contacts']));
     }
     // ------------------------------
     public function success()
