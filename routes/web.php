@@ -18,7 +18,7 @@ Route::get('/schedule/notif_login', 'App\Http\Controllers\FrontPageController@no
 Route::get('/clear','App\Http\Controllers\DashboardController@success');
 Route::get('/errors/notfound','App\Http\Controllers\DashboardController@notfound');
 // --------------------------------------
-Route::get('/log_in', 'App\Http\Controllers\AuthController@log_in')->name('log_in');
+Route::get('/log_in', 'App\Http\Controllers\AuthController@log_in')->name('login');
 Route::get('/sign_up', 'App\Http\Controllers\AuthController@sign_up');
 Route::post('/postlogin', 'App\Http\Controllers\AuthController@postlogin');
 Route::post('/register', 'App\Http\Controllers\AuthController@register');
@@ -118,4 +118,3 @@ Route::group(['middleware' => ['auth', 'CheckRole:user,admin']], function () {
     Route::get('/error', 'App\Http\Controllers\DashboardController@error');
 
 });
-

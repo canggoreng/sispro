@@ -1,0 +1,6 @@
+@include('backend.phoenix.dashboard.theme.slim.topNavSlim')
+@include('backend.phoenix.dashboard.theme.fixed.navbarTop')
+@include('backend.phoenix.dashboard.theme.topslim.navbartopslim')
+@include('backend.phoenix.dashboard.theme.combo.navbarCombo')
+@include('backend.phoenix.dashboard.theme.comboslim.navbarComboSlim')
+@include('backend.phoenix.dashboard.theme.dual.dualNav')
