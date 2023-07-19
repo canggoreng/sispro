@@ -19,6 +19,7 @@
 <script src="{{asset('/public/template/phoenix/assets/js/projectmanagement-dashboard.js')}}"></script>
 
 <!-- sweetalert -->
+<script src="{{asset('public/template/mazer/assets/extensions/jquery/jquery.min.js')}}"></script>
 <script src="{{asset('/public/template/phoenix/assets/js/sweetalert.min.js')}}"></script>
 <script src="{{asset('/public/template/phoenix/assets/js/sweetalert2@9.js') }}"></script>
 
@@ -64,12 +65,12 @@ $('.logout').click(function() {
     })
 
     swalWithBootstrapButtons.fire({
-        title: 'Anda Yakin Ingin Keluar?',
-        text: "( Keluar dari Sistem dan kembali ke halaman Login )",
+        title: 'Keluar Applikasi ?',
+        text: "(Klik Ya, Kembali ke halaman Login)",
         type: 'warning',
         showCancelButton: true,
-        confirmButtonText: 'Yes, Logout!',
-        cancelButtonText: 'No, Batalkan!',
+        confirmButtonText: 'Ya, Keluar',
+        cancelButtonText: 'Tidak, Batalkan',
         reverseButtons: true
     }).then((result) => {
         if (result.value) {
@@ -79,3 +80,5 @@ $('.logout').click(function() {
     })
 });
 </script>
+
+@yield('notification')

@@ -30,10 +30,8 @@
     <!-- @include('backend.phoenix.auth.layouts.customize') -->
     @include('backend.phoenix.dashboard.layouts.script')
 
+    @include('backend.phoenix.auth.layouts.script')
 
 </body>
-@include('backend.phoenix.auth.layouts.script')
-
-@yield('notification')
 
 </html>

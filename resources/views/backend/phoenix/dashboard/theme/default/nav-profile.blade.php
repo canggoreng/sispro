@@ -30,8 +30,8 @@
                 </ul>
             </div>
             <div class="card-footer p-0 border-top">
-                <div class="px-3"> <a class="btn btn-phoenix-secondary d-flex flex-center w-100 logout"
-                        href="{{url('/logout')}}"> <span class="me-2" data-feather="log-out"> </span>Log Out</a>
+                <div class="px-3"> <a class="btn btn-phoenix-secondary d-flex flex-center w-100 logout"> <span
+                            class="me-2" data-feather="log-out"> </span>Log Out</a>
                 </div>
                 <div class="my-2 text-center fw-bold fs--2 text-600"><a class="text-600 me-1" href="#!">Privacy
                         policy</a>&bull;<a class="text-600 mx-1" href="#!">Terms</a>&bull;<a class="text-600 ms-1"
