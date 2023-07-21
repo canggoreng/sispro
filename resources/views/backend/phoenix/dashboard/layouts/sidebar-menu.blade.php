@@ -27,39 +27,33 @@
                             role="button" data-bs-toggle="collapse" aria-expanded="true" aria-controls="nv-home">
                             <div class="d-flex align-items-center">
                                 <div class="dropdown-indicator-icon"><span class="fas fa-caret-right"></span>
-                                </div><span class="nav-link-icon"><span data-feather="pie-chart"></span></span><span
-                                    class="nav-link-text">Home</span>
+                                </div><span class="nav-link-icon"><span data-feather="home"></span></span>
+                                <span class="nav-link-text">Dashboard</span>
                             </div>
                         </a>
                         <div class="parent-wrapper label-1">
                             <ul class="nav collapse parent show" data-bs-parent="#navbarVerticalCollapse" id="nv-home">
-                                <li class="collapsed-nav-item-title d-none">Home</li>
-                                <li class="nav-item"><a class="nav-link" href="../index.html" data-bs-toggle=""
-                                        aria-expanded="false">
-                                        <div class="d-flex align-items-center"><span class="nav-link-text">E
-                                                commerce</span></div>
-                                    </a><!-- more inner pages-->
-                                </li>
-                                <li class="nav-item"><a class="nav-link active" href="project-management.html"
-                                        data-bs-toggle="" aria-expanded="false">
-                                        <div class="d-flex align-items-center"><span class="nav-link-text">Project
-                                                management</span></div>
-                                    </a><!-- more inner pages-->
-                                </li>
-                                <li class="nav-item"><a class="nav-link" href="crm.html" data-bs-toggle=""
-                                        aria-expanded="false">
-                                        <div class="d-flex align-items-center"><span
-                                                class="nav-link-text">CRM</span><span
-                                                class="badge ms-2 badge badge-phoenix badge-phoenix-info ">New</span>
+                                <li class="collapsed-nav-item-title d-none">Dashboard</li>
+                                @if(request()->is('dashboard')?'active':'')
+                                <li class="nav-item">
+                                    <a class="nav-link active" href="{{url('/dashboard')}}" data-bs-toggle="" aria-expanded="false">
+                                        <div class="d-flex align-items-center">
+                                            <span class="nav-link-text">
+                                                <strong>Dashboard</strong>
+                                            </span>
                                         </div>
-                                    </a><!-- more inner pages-->
+                                    </a>
                                 </li>
-                                <li class="nav-item"><a class="nav-link" href="../apps/social/feed.html"
-                                        data-bs-toggle="" aria-expanded="false">
-                                        <div class="d-flex align-items-center"><span class="nav-link-text">Social
-                                                feed</span></div>
-                                    </a><!-- more inner pages-->
+                                @else
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{url('/dashboard')}}" data-bs-toggle="" aria-expanded="false">
+                                        <div class="d-flex align-items-center">
+                                            <span class="nav-link-text">Dashboard</span>
+                                        </div>
+                                    </a>
                                 </li>
+
+                                @endif                                
                             </ul>
                         </div>
                     </div>
@@ -187,7 +181,7 @@
                             role="button" data-bs-toggle="collapse" aria-expanded="false" aria-controls="nv-setting">
                             <div class="d-flex align-items-center">
                                 <div class="dropdown-indicator-icon"><span class="fas fa-caret-right"></span>
-                                </div><span class="nav-link-icon"><span data-feather="mail"></span></span><span
+                                </div><span class="nav-link-icon"><span data-feather="settings"></span></span><span
                                     class="nav-link-text">Settings</span>
                             </div>
                         </a>
@@ -196,11 +190,12 @@
                                 <!-- <li class="collapsed-nav-item-title d-none">Setting
                                     Users</li> -->
                                 @if(request()->is('users')?'active':'')
-                                <li class="nav-item"><a class="nav-link" href="{{url('/users')}}" data-bs-toggle=""
+                                <li class="nav-item"><a class="nav-link active" href="{{url('/users')}}" data-bs-toggle=""
                                         aria-expanded="false">
                                         <div class="d-flex align-items-center"><span
-                                                class="nav-link-text badge badge-info">
-                                                <font color="white"><strong>Users</strong></font>
+                                                class="nav-link-text">
+                                                <strong><i class="far fa-user-circle"></i>
+                                                        Users</strong>
                                             </span>
                                         </div>
                                     </a>
@@ -208,7 +203,48 @@
                                 @else
                                 <li class="nav-item"><a class="nav-link" href="{{url('/users')}}" data-bs-toggle=""
                                         aria-expanded="false">
-                                        <div class="d-flex align-items-center"><span class="nav-link-text">Users</span>
+                                        <div class="d-flex align-items-center"><span class="nav-link-text"><i
+                                                    class="far fa-user-circle"></i> Users</span>
+                                        </div>
+                                    </a>
+                                </li>
+                                @endif
+
+                                @if(request()->is('password')?'active':'')
+                                <li class="nav-item"><a class="nav-link active" href="{{url('/password')}}" data-bs-toggle=""
+                                        aria-expanded="false">
+                                        <div class="d-flex align-items-center"><span
+                                                class="nav-link-text"><strong><i class="fas fa-key"></i>
+                                                        Password</strong>
+                                            </span>
+                                        </div>
+                                    </a>
+                                </li>
+                                @else
+                                <li class="nav-item"><a class="nav-link" href="{{url('/password')}}" data-bs-toggle=""
+                                        aria-expanded="false">
+                                        <div class="d-flex align-items-center"><span class="nav-link-text"><i
+                                                    class="fas fa-key"></i> Password</span>
+                                        </div>
+                                    </a>
+                                </li>
+                                @endif
+
+                                @if(request()->is('profile')?'active':'')
+                                <li class="nav-item"><a class="nav-link active" href="{{url('/profile')}}" data-bs-toggle=""
+                                        aria-expanded="false">
+                                        <div class="d-flex align-items-center"><span
+                                                class="nav-link-text"><strong><i class="fas fa-id-card-alt"></i>
+                                                        Profile</strong>
+                                            </span>
+                                        </div>
+                                    </a>
+                                </li>
+                                @else
+                                <li class="nav-item"><a class="nav-link" href="{{url('/profile')}}" data-bs-toggle=""
+                                        aria-expanded="false">
+                                        <div class="d-flex align-items-center"><span class="nav-link-text"><i
+                                                    class="fas fa-id-card-alt"></i> Profile</span>
                                         </div>
                                     </a>
                                 </li>
@@ -217,9 +253,79 @@
 
                             </ul>
                         </div>
-                    </div><!-- parent pages-->
+                    </div>
+
+                    <div class="nav-item-wrapper"><a class="nav-link dropdown-indicator label-1" href="#nv-master_unit"
+                            role="button" data-bs-toggle="collapse" aria-expanded="false" aria-controls="nv-master_unit">
+                            <div class="d-flex align-items-center">
+                                <div class="dropdown-indicator-icon"><span class="fas fa-caret-right"></span>
+                                </div><span class="nav-link-icon"><span data-feather="database"></span></span><span
+                                    class="nav-link-text">Master</span>
+                            </div>
+                        </a>
+                        <div class="parent-wrapper label-1">
+                            <ul class="nav collapse parent" data-bs-parent="#navbarVerticalCollapse" id="nv-master_unit">
+                                @if(request()->is('master_unit')?'active':'')
+                                <li class="nav-item"><a class="nav-link active" href="{{url('/master_unit')}}" data-bs-toggle=""
+                                        aria-expanded="false">
+                                        <div class="d-flex align-items-center"><span
+                                                class="nav-link-text"><strong><i class="fab fa-buffer"></i>
+                                                        Master Unit</strong>
+                                            </span>
+                                        </div>
+                                    </a>
+                                </li>
+                                @else
+                                <li class="nav-item"><a class="nav-link" href="{{url('/master_unit')}}" data-bs-toggle=""
+                                        aria-expanded="false">
+                                        <div class="d-flex align-items-center"><span class="nav-link-text"><i
+                                                    class="fab fa-buffer"></i> Master Unit</span>
+                                        </div>
+                                    </a>
+                                </li>
+                                @endif
+
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="nav-item-wrapper"><a class="nav-link dropdown-indicator label-1" href="#nv-logs"
+                            role="button" data-bs-toggle="collapse" aria-expanded="false" aria-controls="nv-logs">
+                            <div class="d-flex align-items-center">
+                                <div class="dropdown-indicator-icon"><span class="fas fa-caret-right"></span>
+                                </div><span class="nav-link-icon"><span data-feather="refresh-ccw"></span></span><span
+                                    class="nav-link-text">Logs</span>
+                            </div>
+                        </a>
+                        <div class="parent-wrapper label-1">
+                            <ul class="nav collapse parent" data-bs-parent="#navbarVerticalCollapse" id="nv-logs">
+                                @if(request()->is('logs')?'active':'')
+                                <li class="nav-item"><a class="nav-link active" href="{{url('/logs')}}" data-bs-toggle=""
+                                        aria-expanded="false">
+                                        <div class="d-flex align-items-center"><span
+                                                class="nav-link-text"><strong><i class="fas fa-history"></i>
+                                                        Log In/Out</strong>
+                                            </span>
+                                        </div>
+                                    </a>
+                                </li>
+                                @else
+                                <li class="nav-item"><a class="nav-link" href="{{url('/logs')}}" data-bs-toggle=""
+                                        aria-expanded="false">
+                                        <div class="d-flex align-items-center"><span class="nav-link-text"><i
+                                                    class="fas fa-history"></i> Log In/Out</span>
+                                        </div>
+                                    </a>
+                                </li>
+                                @endif
+
+                            </ul>
+                        </div>
+                    </div>                    
+
                 </li>
             </ul>
+            <hr/>
         </div>
     </div>
     <!-- <div class="navbar-vertical-footer">
